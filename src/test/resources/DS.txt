@@ -1,0 +1,10 @@
+{
+    "name":"dsPerfdev",
+    "type":"${DS.type}",
+    "properties":{
+        "url":"${DS.url}",
+        "user":"${DS.user}",
+        "password":"${DS.password}"
+        },
+    "description":"."
+}

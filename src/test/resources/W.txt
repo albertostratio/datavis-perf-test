@@ -1,0 +1,13 @@
+{
+    "name":"wPerf",
+    "type":"type2",
+    "description":".",
+    "thumbnail":".",
+    "properties":{
+        "property":"."
+        },
+    "screenShots":{
+        "screenshot":"."
+        },
+    "tags":[{"tag":"tag1"}]
+}

@@ -1,0 +1,23 @@
+[{
+    "DS": {
+        "type":"jdbc",
+        "url":"postgres://hakama:hakama@localhost/hakama",
+        "user":"foo",
+        "password":"bar"
+         },
+    "DV": {
+         "query":"SELECT Item, SUM(Units) FROM sales GROUP BY Item"
+//         "query":"SELECT * FROM generate_series(1,50000)"
+         }
+//}
+//,{
+//   "DS": {
+//       "type":"rest",
+//       "url":"http://10.200.0.16:9999/test",
+//       "user":"",
+//       "password":""
+//        },
+//   "DV": {
+//       "query":"none"
+//        }
+}]

@@ -1,0 +1,9 @@
+{
+    "name":"dvPerf",
+    "description":".",
+    "query":"${DV.query}",
+    "properties":{
+        "property":"."
+        },
+    "idDataSource":${DSID}
+}

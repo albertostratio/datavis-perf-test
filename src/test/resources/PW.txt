@@ -1,0 +1,9 @@
+{
+   "title": "pwPerf",
+   "positionX": 0,
+   "positionY": 0,
+   "properties": {
+        "property":"."
+        },
+   "dataViews": [{"dataViewId":${DVID}}]
+}
