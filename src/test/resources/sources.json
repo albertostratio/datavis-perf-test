@@ -6,8 +6,7 @@
         "password":"bar"
          },
     "DV": {
-         "query":"SELECT Item, SUM(Units) FROM sales GROUP BY Item"
-//         "query":"SELECT * FROM generate_series(1,50000)"
+         "query":"SELECT * FROM data_sources"
          }
 //}
 //,{
