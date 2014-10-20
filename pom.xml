@@ -24,9 +24,9 @@
                             <dataFolder>./</dataFolder>
                             <noReports>true</noReports>
                             <simulationClass>com.stratio.tests.PrePT</simulationClass>
-                            <!--<jvmArgs>-->
+                             <!--<jvmArgs> -->
                                  <!--<jvmArg>-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5009</jvmArg>-->
-                            <!--</jvmArgs>-->
+                             <!--</jvmArgs> -->
                         </configuration>
                     </execution>
                     <execution>

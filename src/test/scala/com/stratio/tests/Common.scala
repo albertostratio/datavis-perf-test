@@ -5,14 +5,17 @@ import java.util.concurrent.atomic.AtomicInteger
 import io.gatling.core.Predef._
 import io.gatling.http.Predef.http
 import org.slf4j.LoggerFactory
+import System._
 
 trait Common {
 
   def logger = LoggerFactory.getLogger(this.getClass)
 
+  val sut = "http://".concat(System.getProperty("SUT", "10.200.0.16:9001"))
+
   val httpConf = http
-    .baseURL("http://10.200.0.16:9001")
-    .warmUp("http://10.200.0.16:9000")
+    .baseURL(sut)
+    .warmUp(sut)
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
     .acceptLanguageHeader("en-US,en;q=0.5")
     .acceptEncodingHeader("gzip, deflate")

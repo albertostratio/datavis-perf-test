@@ -42,10 +42,13 @@ class DataPT extends Simulation with Common{
     throw new AssertionError("No scenarios")
   }
 
+  val users = Integer.parseInt(System.getProperty("users", "200"))
+  val injectDuration = Integer.parseInt(System.getProperty("injectD", "30"))
+  val runDuration = Integer.parseInt(System.getProperty("runD", "30"))
   setUp(
-    scns.toList.map(_.inject(rampUsersPerSec(5) to (200) during (5 minutes)))
+    scns.toList.map(_.inject(rampUsers(users) over(injectDuration.minutes)))
   )
-  .maxDuration(30 minutes)
+  .maxDuration(runDuration.minutes)
   .uniformPauses(2)
   .protocols(httpConf)
   .assertions(
@@ -54,3 +57,4 @@ class DataPT extends Simulation with Common{
   )
 
 }
+
