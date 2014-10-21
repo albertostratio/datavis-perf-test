@@ -52,7 +52,7 @@ class DataPT extends Simulation with Common{
   .uniformPauses(2)
   .protocols(httpConf)
   .assertions(
-    global.responseTime.max.lessThan(1000L),
+    global.responseTime.max.lessThan(1000),
     global.successfulRequests.percent.greaterThan(95)
   )
 
