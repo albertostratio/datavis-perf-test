@@ -2,7 +2,8 @@
     "name":"dsPerfdev",
     "type":"${DS.type}",
     "properties":{
-        "url":"${DS.url}",
+        "url":"${DS.uri}",
+        "path":"${DS.uri}",
         "user":"${DS.user}",
         "password":"${DS.password}"
         },

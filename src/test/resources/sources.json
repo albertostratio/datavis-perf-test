@@ -1,18 +1,28 @@
 [{
     "DS": {
         "type":"jdbc",
-        "url":"postgres://hakama:hakama@localhost/hakama",
+        "uri":"postgres://hakama:hakama@localhost/hakama",
         "user":"foo",
         "password":"bar"
          },
     "DV": {
          "query":"SELECT * FROM data_sources"
          }
+,{
+    "DS": {
+        "type":"file",
+        "uri":"/root/datavis/datavis-server/test/resources/sales.xls",
+        "user":"",
+        "password":""
+         },
+    "DV": {
+        "query":"SELECT Item, SUM(Units) FROM sales GROUP BY Item"
+         }
 //}
 //,{
 //   "DS": {
 //       "type":"rest",
-//       "url":"http://10.200.0.16:9999/test",
+//       "uri":"http://10.200.0.16:9999/test",
 //       "user":"",
 //       "password":""
 //        },
