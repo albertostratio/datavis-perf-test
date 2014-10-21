@@ -8,7 +8,7 @@
     "DV": {
          "query":"SELECT * FROM data_sources"
          }
-,{
+},{
     "DS": {
         "type":"file",
         "uri":"/root/datavis/datavis-server/test/resources/sales.xls",
