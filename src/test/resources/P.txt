@@ -1,5 +1,5 @@
 {
-    "title":"paPerf",
+    "title":"paPerf${DS.type}",
     "url": "/main",
     "content": "content",
     "layOut": "layOut",

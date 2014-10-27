@@ -1,11 +1,19 @@
 {
-    "name":"dsPerfdev",
-    "type":"${DS.type}",
+    "name":"dsPerfdev${DS.type}",
+    "type":"${DS.type}${DS.subtype}",
     "properties":{
         "url":"${DS.uri}",
         "path":"${DS.uri}",
+        "hostName":"${DS.uri}",
+        "port":"${DS.port}",
         "user":"${DS.user}",
-        "password":"${DS.password}"
+        "userName":"${DS.user}",
+        "password":"${DS.password}",
+        "databaseName":"${DS.db}",
+        "index":"${DS.db}",
+        "type":"${DS.type}",
+        "keyspaceName":"${DS.db}"
+
         },
     "description":"."
 }

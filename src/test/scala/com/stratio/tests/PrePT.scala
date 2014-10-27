@@ -1,9 +1,8 @@
 package com.stratio.tests
 
-import java.util
+import java.util.Scanner
 
 import io.gatling.core.Predef._
-import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef.{ http, jsonPath }
 import io.gatling.http.request._
 import java.io._
@@ -59,9 +58,8 @@ class PrePT extends Simulation with Common{
         session => {
           logger.info("Adding pageWidget.associationId, value {}  to feeder", session("PWID").as[String])
           val el = session.attributes.get("DS")
-          val element = el.get.asInstanceOf[util.LinkedHashMap[String,String]]
-          val elementType = element.get("type").get
-          writer.write(elementType + "," + session("PWID").as[String] + "\n")
+          val element = el.get.asInstanceOf[java.util.LinkedHashMap[String,String]]
+          writer.write(element.get("type").get + element.get("subtype").get + "," + session("PWID").as[String] + "\n")
           session })
       .exitHereIfFailed
   }
@@ -75,11 +73,26 @@ class PrePT extends Simulation with Common{
     logger.info("Preconditions done")
   }
 
+  //replace REST_DS, JDBC_DS, MONGO_DS, CASSANDRA_DS from sources.json
+  val placeholded = new Scanner(new File("target/test-classes/sources_placeholders.json"));
+  val replaced = new PrintWriter("target/test-classes/sources.json");
+  var sources = placeholded.useDelimiter("\\A").next()
+
+  sources = sources.replaceAll("JDBCDS", jdbcds)
+  sources = sources.replaceAll("MONGODS", mongods)
+  sources = sources.replaceAll("CASSANDRADS", cassandrads)
+  sources = sources.replaceAll("ELASTICSEARCHDS", elasticsearchds)
+  sources = sources.replaceAll("RESTDS", restds)
+
+  replaced.println(sources);
+  placeholded.close();
+  replaced.close();
+
   val feeder = jsonFile("sources.json")
 
   val users = scenario("Pre-requirements")
     .foreach(feeder.records, "record") {
-       exec(flattenMapIntoAttributes("${record}"))
+      exec(flattenMapIntoAttributes("${record}"))
       .exec(
         RequiredElement.getUser
         ,RequiredElement.createDataSource

@@ -5,13 +5,19 @@ import java.util.concurrent.atomic.AtomicInteger
 import io.gatling.core.Predef._
 import io.gatling.http.Predef.http
 import org.slf4j.LoggerFactory
-import System._
 
 trait Common {
 
   def logger = LoggerFactory.getLogger(this.getClass)
 
-  val sut = "http://".concat(System.getProperty("SUT", "10.200.0.16:9001"))
+  val sut = "http://".concat(System.getProperty("SUT", "148.251.128.43:19000"))
+
+  val jdbcds = System.getProperty("JDBCDS", "127.0.0.1")
+  val mongods = System.getProperty("MONGODS", "127.0.0.1")
+  val cassandrads = System.getProperty("CASSANDRADS", "127.0.0.1")
+  val elasticsearchds = System.getProperty("ELASTICSEARCHDS", "127.0.0.1")
+  val restds = System.getProperty("RESTDS", "127.0.0.1")
+
 
   val httpConf = http
     .baseURL(sut)

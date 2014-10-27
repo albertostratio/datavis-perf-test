@@ -1,5 +1,5 @@
 {
-   "title": "pwPerf",
+   "title": "pwPerf${DS.type}",
    "positionX": 0,
    "positionY": 0,
    "properties": {

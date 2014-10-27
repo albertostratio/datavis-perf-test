@@ -1,10 +1,11 @@
 {
-    "name":"wPerf",
+    "name":"wPerf${DS.type}",
     "type":"type2",
     "description":".",
     "thumbnail":".",
     "properties":{
-        "property":"."
+        "property":".",
+        "url":".xml"
         },
     "screenShots":{
         "screenshot":"."

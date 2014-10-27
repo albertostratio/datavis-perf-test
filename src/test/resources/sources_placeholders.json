@@ -1,0 +1,127 @@
+[{
+    "DS": {
+        "type":"jdbc",
+        "subtype":"",
+        "uri":"postgres://hakama:hakama@JDBCDS/demo",
+        "port": "",
+        "db":"NONE",
+        "estype":"",
+        "user":"foo",
+        "password":"bar"
+         },
+    "DV": {
+         "query":"SELECT * FROM demo"
+         }
+},{
+    "DS": {
+        "type":"file",
+        "subtype":"",
+        "uri":"/home/stratio/data/demo.csv",
+        "port": "NONE",
+        "db":"NONE",
+        "estype":"",
+        "user":"NONE",
+        "password":"NONE"
+         },
+    "DV": {
+        "query":"SELECT Item, SUM(Units) FROM sales GROUP BY Item"
+         }
+},{
+    "DS": {
+        "type":"mongodb",
+        "subtype":"_metamodel",
+        "uri":"MONGODS",
+        "port": "27017",
+        "db":"demo",
+        "estype":"",
+        "user":"",
+        "password":""
+         },
+    "DV": {
+        "query":"SELECT * FROM demo"
+         }
+},{
+    "DS": {
+        "type":"mongodb",
+        "subtype":"_native",
+        "uri":"MONGODS",
+        "port": "27017",
+        "db":"demo",
+        "estype":"",
+        "user":"",
+        "password":""
+         },
+    "DV": {
+        "query":"db.demo.find()"
+         }
+},{
+    "DS": {
+        "type":"cassandra",
+        "subtype":"_metamodel",
+        "uri":"CASSANDRADS",
+        "port": "9042",
+        "db":"demo",
+        "estype":"",
+        "user":"",
+        "password":""
+         },
+    "DV": {
+        "query":"SELECT * FROM demo"
+         }
+},{
+    "DS": {
+        "type":"cassandra",
+        "subtype":"_native",
+        "uri":"CASSANDRADS",
+        "port": "9042",
+        "db":"demo",
+        "estype":"",
+        "user":"",
+        "password":""
+         },
+    "DV": {
+        "query":"SELECT * FROM demo.demo"
+         }
+//},{
+//    "DS": {
+//        "type":"elasticsearch",
+//        "subtype":"_native",
+//        "uri":"ELASTICSEARCHDS",
+//        "port": "9300",
+//        "db":"demo",
+//        "estype":"",
+//        "user":"",
+//        "password":""
+//         },
+//    "DV": {
+//        "query":"SELECT * FROM demo.demo"
+//         }
+//},{
+//    "DS": {
+//        "type":"elasticsearch",
+//        "subtype":"_native",
+//        "uri":"ELASTICSEARCHDS",
+//        "port": "9300",
+//        "db":"demo",
+//        "estype":"demo",
+//        "user":"",
+//        "password":""
+//         },
+//    "DV": {
+//        "query":"SELECT * FROM demo.demo"
+//         }
+//},{
+//    "DS": {
+//        "type":"rest",
+//        "subtype":"",
+//        "uri":"http://RESTDS:9999/test",
+//        "port": "NONE",
+//        "db":"NONE",
+//        "estype":"NONE",
+//        "user":"NONE",
+//        "password":"NONE"
+//         },
+//    "DV": {
+//        "query":"none"
+//         }
+}]

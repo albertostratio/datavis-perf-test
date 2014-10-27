@@ -1,5 +1,5 @@
 {
-    "name":"dvPerf",
+    "name":"dvPerf${DS.type}",
     "description":".",
     "query":"${DV.query}",
     "properties":{
