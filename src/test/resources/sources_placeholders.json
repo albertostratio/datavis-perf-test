@@ -24,7 +24,7 @@
         "password":"NONE"
          },
     "DV": {
-        "query":"SELECT Item, SUM(Units) FROM sales GROUP BY Item"
+        "query":"SELECT _id,city,loc,pop,state FROM demo"
          }
 },{
     "DS": {
