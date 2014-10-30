@@ -16,7 +16,7 @@
     "DS": {
         "type":"file",
         "subtype":"",
-        "uri":"/home/stratio/data/demo.csv",
+        "uri":"/data/demo.csv",
         "port": "NONE",
         "db":"NONE",
         "estype":"",
