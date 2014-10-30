@@ -11,7 +11,7 @@
         "password":"${DS.password}",
         "databaseName":"${DS.db}",
         "index":"${DS.db}",
-        "type":"${DS.type}",
+        "type":"${DS.estype}",
         "keyspaceName":"${DS.db}"
 
         },

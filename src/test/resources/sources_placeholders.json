@@ -24,7 +24,7 @@
         "password":"NONE"
          },
     "DV": {
-        "query":"SELECT _id,city,loc,pop,state FROM demo"
+        "query":"SELECT * FROM demo.csv"
          }
 },{
     "DS": {
