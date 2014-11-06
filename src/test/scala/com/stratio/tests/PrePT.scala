@@ -83,6 +83,8 @@ class PrePT extends Simulation with Common{
   sources = sources.replaceAll("CASSANDRADS", cassandrads)
   sources = sources.replaceAll("ELASTICSEARCHDS", elasticsearchds)
   sources = sources.replaceAll("RESTDS", restds)
+  sources = sources.replaceAll("SPARKCASSANDRADS", sparkcassandrads)
+  sources = sources.replaceAll("DEEPDS", deepds)
 
   replaced.println(sources);
   placeholded.close();

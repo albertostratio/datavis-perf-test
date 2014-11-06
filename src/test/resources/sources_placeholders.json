@@ -1,13 +1,12 @@
 [{
     "DS": {
         "type":"jdbc",
-        "subtype":"",
-        "uri":"postgres://hakama:hakama@JDBCDS/demo",
-        "port": "",
-        "db":"NONE",
-        "estype":"",
-        "user":"foo",
-        "password":"bar"
+        "props":{       
+	        "url":"postgres://hakama:hakama@JDBCDS/demo",   
+	        "userName":"not being used!!",
+	        "password":"not being used!!",
+	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$JDBCDataProviderProperties"
+	        }
          },
     "DV": {
          "query":"SELECT * FROM demo"
@@ -15,82 +14,100 @@
 },{
     "DS": {
         "type":"file",
-        "subtype":"",
-        "uri":"/data/demo.csv",
-        "port": "NONE",
-        "db":"NONE",
-        "estype":"",
-        "user":"NONE",
-        "password":"NONE"
+        "props":{  
+        	"path":"/data/demo.csv",
+        	"tableName":"not being used!!",
+        	"mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$FileDataProviderProperties"
+        	}
          },
     "DV": {
         "query":"SELECT * FROM demo.csv"
          }
 },{
     "DS": {
-        "type":"mongodb",
-        "subtype":"_metamodel",
-        "uri":"MONGODS",
-        "port": "27017",
-        "db":"demo",
-        "estype":"",
-        "user":"",
-        "password":""
+        "type":"mongodb_metamodel",
+        "props":{  
+	        "host":"MONGODS",
+	        "port": "27017",
+	        "databaseName":"demo",        
+	        "userName":"",
+	        "password":"",
+	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$MongoDbMetaModelDataProviderProperties"
+	        }
          },
     "DV": {
         "query":"SELECT * FROM demo"
          }
 },{
     "DS": {
-        "type":"mongodb",
-        "subtype":"_native",
-        "uri":"MONGODS",
-        "port": "27017",
-        "db":"demo",
-        "estype":"",
-        "user":"",
-        "password":""
+        "type":"mongodb_native",
+        "props":{  
+	        "host":"MONGODS",
+	        "port": "27017",
+	        "databaseName":"demo",
+	        "userName":"",
+	        "password":"",
+	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$MongoDbNativeDataProviderProperties"
+	        }
          },
     "DV": {
         "query":"db.demo.find()"
          }
 },{
     "DS": {
-        "type":"cassandra",
-        "subtype":"_metamodel",
-        "uri":"CASSANDRADS",
-        "port": "9042",
-        "db":"demo",
-        "estype":"",
-        "user":"",
-        "password":""
+        "type":"cassandra_metamodel",
+        "props":{  
+	        "host":"CASSANDRADS",
+	        "port": "9042",
+	        "keyspace":"demo",
+	        "userName":"",
+	        "password":"",
+	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$CassandraMetaModelDataProviderProperties"
+	        }
          },
     "DV": {
         "query":"SELECT * FROM demo"
          }
 },{
     "DS": {
-        "type":"cassandra",
-        "subtype":"_native",
-        "uri":"CASSANDRADS",
-        "port": "9042",
-        "db":"demo",
-        "estype":"",
-        "user":"",
-        "password":""
+        "type":"cassandra_native",
+        "props": {
+	        "host":"CASSANDRADS",
+	        "port": "9042",
+	        "keyspace":"demo",        
+        	"userName":"",
+        	"password":"",
+        	"mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$CassandraNativeDataProviderProperties"
+        	}
          },
     "DV": {
         "query":"SELECT * FROM demo.demo"
          }
+},{
+    "DS": {        
+        "type":"sparkcassandra",
+        "props": {
+	        "cassandraHost":"CASSANDRADS",
+	        "cassandraHost":"localhost",
+	        "cassandraRpcPort":9160,
+	        "cassandraKeyspace":"demo",
+	        "sparkMasterHost":"SPARKCASSANDRADS",
+	        "sparkMasterPort":7077,
+	        "sparkAppName":"test",	     
+	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$SparkCassandraDataProviderProperties"   
+	        }
+         },
+    "DV": {
+        "query":"SELECT * FROM demo"
+         }
 //},{
 //    "DS": {
-//        "type":"elasticsearch",
-//        "subtype":"_native",
-//        "uri":"ELASTICSEARCHDS",
-//        "port": "9300",
+//        "type":"deep",
+//        "host":"DEEPDS",
+//        "port": "7077",
 //        "db":"demo",
 //        "estype":"",
-//        "user":"",
+//        "userName":"",
 //        "password":""
 //         },
 //    "DV": {
@@ -98,13 +115,25 @@
 //         }
 //},{
 //    "DS": {
-//        "type":"elasticsearch",
-//        "subtype":"_native",
-//        "uri":"ELASTICSEARCHDS",
+//        "type":"elasticsearch_native",
+//        "host":"ELASTICSEARCHDS",
+//        "port": "9300",
+//        "db":"demo",
+//        "estype":"",
+//        "userName":"",
+//        "password":""
+//         },
+//    "DV": {
+//        "query":"SELECT * FROM demo.demo"
+//         }
+//},{
+//    "DS": {
+//        "type":"elasticsearch_metamodel",
+//        "host":"ELASTICSEARCHDS",
 //        "port": "9300",
 //        "db":"demo",
 //        "estype":"demo",
-//        "user":"",
+//        "userName":"",
 //        "password":""
 //         },
 //    "DV": {
@@ -113,12 +142,11 @@
 //},{
 //    "DS": {
 //        "type":"rest",
-//        "subtype":"",
-//        "uri":"http://RESTDS:9999/test",
-//        "port": "NONE",
-//        "db":"NONE",
+//        "host":"RESTDS",
+//        "port": "9999",
+//        "db":"test",
 //        "estype":"NONE",
-//        "user":"NONE",
+//        "userName":"NONE",
 //        "password":"NONE"
 //         },
 //    "DV": {

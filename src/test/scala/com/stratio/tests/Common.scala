@@ -17,6 +17,8 @@ trait Common {
   val cassandrads = System.getProperty("CASSANDRADS", "127.0.0.1")
   val elasticsearchds = System.getProperty("ELASTICSEARCHDS", "127.0.0.1")
   val restds = System.getProperty("RESTDS", "127.0.0.1")
+  val sparkcassandrads = System.getProperty("SPARKCASSANDRADS", "127.0.0.1")
+  val deepds = System.getProperty("DEEPDS", "127.0.0.1")
 
 
   val httpConf = http
