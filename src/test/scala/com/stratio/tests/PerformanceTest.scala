@@ -17,8 +17,8 @@ trait PerformanceTest extends Simulation with Common{
           .post("/data")
           .body(StringBody(
           """{"id": ${PWID}
-            ,"filters": []
-            |,"fetchMetaData": false
+            ,"filters":[]
+            |,"fetchMetaData":true
             |}""".stripMargin)).asJSON
           .check(jsonPath("$")
           .saveAs("response"))
