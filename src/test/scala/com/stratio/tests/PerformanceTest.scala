@@ -23,7 +23,7 @@ trait PerformanceTest extends Simulation with Common{
           .check(jsonPath("$")
 //          .saveAs("response"))
 //          .check(responseTimeInMillis.lessThanOrEqual(1000L))
-        )
+//        )
   )}
 
   val feederAssoc = csv("associationId.csv")
