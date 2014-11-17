@@ -107,6 +107,9 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
+                                    <!--<gatlingJvmArgs>-->
+                                        <!--<jvmArg>-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5009</jvmArg>-->
+                                    <!--</gatlingJvmArgs>-->
                                     <failOnError>false</failOnError>
                                     <simulationClass>com.stratio.tests.DataJDBC</simulationClass>
                                 </configuration>

@@ -32,7 +32,7 @@ trait PerformanceTest extends Simulation with Common{
   val injectDuration = Integer.parseInt(System.getProperty("injectD", "1"))
   val runDuration = Integer.parseInt(System.getProperty("runD", "1"))
 
-  val dtype = this.getClass.getSimpleName.replace("Data", "")
+  val dtype = this.getClass.getSimpleName.replace("Data", "").toLowerCase
 
   val scns = new ListBuffer[ScenarioBuilder]()
 }
