@@ -21,9 +21,9 @@ trait PerformanceTest extends Simulation with Common{
             |,"fetchMetaData": false
             |}""".stripMargin)).asJSON
           .check(jsonPath("$")
-//          .saveAs("response"))
-//          .check(responseTimeInMillis.lessThanOrEqual(1000L))
-//        )
+          .saveAs("response"))
+          .check(responseTimeInMillis.lessThanOrEqual(10000L))
+        )
   )}
 
   val feederAssoc = csv("associationId.csv")
