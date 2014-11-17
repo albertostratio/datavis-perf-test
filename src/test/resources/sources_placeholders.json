@@ -28,7 +28,7 @@
         "type":"mongodb_metamodel",
         "props":{
 	        "host":"MONGODS",
-	        "port": "27017",
+	        "port":27017,
 	        "databaseName":"demo",
 	        "userName":"",
 	        "password":"",
@@ -43,7 +43,7 @@
         "type":"mongodb_native",
         "props":{
 	        "host":"MONGODS",
-	        "port": "27017",
+	        "port":27017,
 	        "databaseName":"demo",
 	        "userName":"",
 	        "password":"",
@@ -58,7 +58,7 @@
         "type":"cassandra_metamodel",
         "props":{
 	        "host":"CASSANDRADS",
-	        "port": "9042",
+	        "port":9042,
 	        "keyspace":"demo",
 	        "userName":"",
 	        "password":"",
@@ -73,7 +73,7 @@
         "type":"cassandra_native",
         "props": {
 	        "host":"CASSANDRADS",
-	        "port": "9042",
+	        "port":9042,
 	        "keyspace":"demo",
         	"userName":"",
         	"password":"",
@@ -104,7 +104,7 @@
 //    "DS": {
 //        "type":"deep",
 //        "host":"DEEPDS",
-//        "port": "7077",
+//        "port":7077,
 //        "db":"demo",
 //        "estype":"",
 //        "userName":"",
@@ -117,7 +117,7 @@
 //    "DS": {
 //        "type":"elasticsearch_native",
 //        "host":"ELASTICSEARCHDS",
-//        "port": "9300",
+//        "port":9300,
 //        "db":"demo",
 //        "estype":"",
 //        "userName":"",
@@ -130,7 +130,7 @@
 //    "DS": {
 //        "type":"elasticsearch_metamodel",
 //        "host":"ELASTICSEARCHDS",
-//        "port": "9300",
+//        "port":9300,
 //        "db":"demo",
 //        "estype":"demo",
 //        "userName":"",
@@ -143,7 +143,7 @@
 //    "DS": {
 //        "type":"rest",
 //        "host":"RESTDS",
-//        "port": "9999",
+//        "port":9999,
 //        "db":"test",
 //        "estype":"NONE",
 //        "userName":"NONE",

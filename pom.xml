@@ -57,7 +57,7 @@
                                 </goals>
                                 <configuration>
                                     <noReports>false</noReports>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.PrePT</simulationClass>
                                 </configuration>
                             </execution>
@@ -82,7 +82,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataAll</simulationClass>
                                 </configuration>
                             </execution>
@@ -110,7 +110,7 @@
                                     <!--<gatlingJvmArgs>-->
                                         <!--<jvmArg>-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5009</jvmArg>-->
                                     <!--</gatlingJvmArgs>-->
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataJDBC</simulationClass>
                                 </configuration>
                             </execution>
@@ -135,7 +135,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataFile</simulationClass>
                                 </configuration>
                             </execution>
@@ -160,7 +160,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataRest</simulationClass>
                                 </configuration>
                             </execution>
@@ -185,7 +185,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataMongoDB_metamodel</simulationClass>
                                 </configuration>
                             </execution>
@@ -210,7 +210,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataMongoDB_native</simulationClass>
                                 </configuration>
                             </execution>
@@ -235,7 +235,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataCassandra_metamodel</simulationClass>
                                 </configuration>
                             </execution>
@@ -260,7 +260,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataCassandra_native</simulationClass>
                                 </configuration>
                             </execution>
@@ -285,7 +285,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataElasticsearch_metamodel</simulationClass>
                                 </configuration>
                             </execution>
@@ -310,7 +310,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataElasticsearch_native</simulationClass>
                                 </configuration>
                             </execution>
@@ -335,7 +335,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataSparkSQL_native</simulationClass>
                                 </configuration>
                             </execution>
@@ -360,7 +360,7 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <failOnError>false</failOnError>
+                                    <failOnError>true</failOnError>
                                     <simulationClass>com.stratio.tests.DataDeep_native</simulationClass>
                                 </configuration>
                             </execution>
