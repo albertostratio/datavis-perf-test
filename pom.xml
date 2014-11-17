@@ -8,6 +8,37 @@
     <name>datavis-system-test</name>
     <url></url>
 
+    <properties>
+        <gatling-maven-plugin.version>2.1.0-SNAPSHOT</gatling-maven-plugin.version>
+        <gatling.version>2.1.0-SNAPSHOT</gatling.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>artifact-Snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>plugin-Snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
     <profiles>
         <profile>
             <id>PRE</id>
@@ -16,7 +47,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>pre</id>
@@ -42,7 +73,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>all</id>
@@ -67,7 +98,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>jdbc</id>
@@ -92,7 +123,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>file</id>
@@ -117,7 +148,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>rest</id>
@@ -142,7 +173,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>MongoM</id>
@@ -167,7 +198,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>MongoN</id>
@@ -192,7 +223,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>CassandraM</id>
@@ -217,7 +248,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>CassandraN</id>
@@ -242,7 +273,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>ElasticsearchM</id>
@@ -267,7 +298,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>ElasticsearchN</id>
@@ -292,7 +323,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>SparkSQLN</id>
@@ -317,7 +348,7 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>${gatling-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>DeepN</id>
@@ -341,7 +372,7 @@
         <dependency>
             <groupId>io.gatling.highcharts</groupId>
             <artifactId>gatling-charts-highcharts</artifactId>
-            <version>2.0.0</version>
+            <version>${gatling.version}</version>
         </dependency>
     </dependencies>
 </project>

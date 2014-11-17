@@ -2,7 +2,7 @@
     "DS": {
         "type":"jdbc",
         "props":{       
-	        "url":"postgres://hakama:hakama@JDBCDS/demo",   
+	        "url":"postgres://hakama:hakama@JDBCDS/demo",
 	        "userName":"not being used!!",
 	        "password":"not being used!!",
 	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$JDBCDataProviderProperties"
@@ -14,7 +14,7 @@
 },{
     "DS": {
         "type":"file",
-        "props":{  
+        "props":{
         	"path":"/data/demo.csv",
         	"tableName":"not being used!!",
         	"mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$FileDataProviderProperties"
@@ -26,10 +26,10 @@
 },{
     "DS": {
         "type":"mongodb_metamodel",
-        "props":{  
+        "props":{
 	        "host":"MONGODS",
 	        "port": "27017",
-	        "databaseName":"demo",        
+	        "databaseName":"demo",
 	        "userName":"",
 	        "password":"",
 	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$MongoDbMetaModelDataProviderProperties"
@@ -41,7 +41,7 @@
 },{
     "DS": {
         "type":"mongodb_native",
-        "props":{  
+        "props":{
 	        "host":"MONGODS",
 	        "port": "27017",
 	        "databaseName":"demo",
@@ -56,7 +56,7 @@
 },{
     "DS": {
         "type":"cassandra_metamodel",
-        "props":{  
+        "props":{
 	        "host":"CASSANDRADS",
 	        "port": "9042",
 	        "keyspace":"demo",
@@ -74,7 +74,7 @@
         "props": {
 	        "host":"CASSANDRADS",
 	        "port": "9042",
-	        "keyspace":"demo",        
+	        "keyspace":"demo",
         	"userName":"",
         	"password":"",
         	"mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$CassandraNativeDataProviderProperties"
@@ -83,23 +83,23 @@
     "DV": {
         "query":"SELECT * FROM demo.demo"
          }
-},{
-    "DS": {        
-        "type":"sparkcassandra",
-        "props": {
-	        "cassandraHost":"CASSANDRADS",
-	        "cassandraHost":"localhost",
-	        "cassandraRpcPort":9160,
-	        "cassandraKeyspace":"demo",
-	        "sparkMasterHost":"SPARKCASSANDRADS",
-	        "sparkMasterPort":7077,
-	        "sparkAppName":"test",	     
-	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$SparkCassandraDataProviderProperties"   
-	        }
-         },
-    "DV": {
-        "query":"SELECT * FROM demo"
-         }
+//},{
+//    "DS": {
+//        "type":"sparkcassandra",
+//        "props": {
+//	        "cassandraHost":"CASSANDRADS",
+//	        "cassandraHost":"localhost",
+//	        "cassandraRpcPort":9160,
+//	        "cassandraKeyspace":"demo",
+//	        "sparkMasterHost":"SPARKCASSANDRADS",
+//	        "sparkMasterPort":7077,
+//	        "sparkAppName":"test",
+//	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$SparkCassandraDataProviderProperties"
+//	        }
+//         },
+//    "DV": {
+//        "query":"SELECT * FROM demo"
+//         }
 //},{
 //    "DS": {
 //        "type":"deep",
@@ -152,4 +152,3 @@
 //    "DV": {
 //        "query":"none"
 //         }
-}]

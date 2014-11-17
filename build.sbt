@@ -8,8 +8,8 @@ val test = project.in(file("."))
   .enablePlugins(GatlingPlugin)
 
 libraryDependencies ++= Seq(
-  "io.gatling.highcharts" % "gatling-charts-highcharts" % "2.0.1" % "test",
-  "io.gatling" % "test-framework" % "1.0-RC5" % "test"
+  "io.gatling.highcharts" % "gatling-charts-highcharts" % "2.1.0-SNAPSHOT" % "test"
+//  ,"io.gatling" % "test-framework" % "1.0-RC5" % "test"
 )
 
 fork := false

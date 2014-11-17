@@ -59,7 +59,7 @@ class PrePT extends Simulation with Common{
           logger.info("Adding pageWidget.associationId, value {}  to feeder", session("PWID").as[String])
           val el = session.attributes.get("DS")
           val element = el.get.asInstanceOf[java.util.LinkedHashMap[String,String]]
-          writer.write(element.get("type").get + element.get("subtype").get + "," + session("PWID").as[String] + "\n")
+          writer.write(element.get("type").get + "," + session("PWID").as[String] + "\n")
           session })
       .exitHereIfFailed
   }
