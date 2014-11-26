@@ -16,12 +16,14 @@
     <repositories>
         <repository>
             <id>artifact-Snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>            
             <snapshots>
                 <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
             </snapshots>
             <releases>
                 <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
             </releases>
         </repository>
     </repositories>
@@ -29,12 +31,14 @@
     <pluginRepositories>
         <pluginRepository>
             <id>plugin-Snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>                
             </snapshots>
             <releases>
                 <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
             </releases>
         </pluginRepository>
     </pluginRepositories>
