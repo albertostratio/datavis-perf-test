@@ -1,6 +1,6 @@
 {
     "name":"dsPerfdev${DS.type}",
     "type":"${DS.type}",
-    "properties":${DS.props.toJsonValue()},
+    "properties":${DS.props.jsonStringify()},
     "description":"."
 }
