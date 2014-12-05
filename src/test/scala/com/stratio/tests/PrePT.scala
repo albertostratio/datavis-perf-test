@@ -5,6 +5,7 @@ import java.util.Scanner
 import io.gatling.core.Predef._
 import io.gatling.http.Predef.{ http, jsonPath }
 import io.gatling.http.request._
+import io.gatling.http.request.BodyPart._
 import java.io._
 
 class PrePT extends Simulation with Common{
@@ -35,6 +36,13 @@ class PrePT extends Simulation with Common{
           .saveAs("DVID")))
       .exitHereIfFailed
 
+ 	val uploadShindingXML = exec(http("POST /widget/upload")
+        .post("/widget/upload")
+        .bodyPart(rawFileBodyPart(Option ("File"), "chart.xml").contentType("text/xml"))
+        .check(jsonPath("$.fileId")
+           .saveAs("FID")))
+      .exitHereIfFailed
+      
     val createWidget = exec(http("POST /widgets")
         .post("/widgets")
         .body(ELFileBody("W.txt")).asJSON
@@ -99,6 +107,7 @@ class PrePT extends Simulation with Common{
         RequiredElement.getUser
         ,RequiredElement.createDataSource
         ,RequiredElement.createDataView
+        ,RequiredElement.uploadShindingXML
         ,RequiredElement.createWidget
         ,RequiredElement.createPage
         ,RequiredElement.assocPageWidget

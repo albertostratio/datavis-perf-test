@@ -10,5 +10,6 @@
     "screenShots":{
         "screenshot":"."
         },
-    "tags":[{"tag":"tag1"}]
+    "tags":[{"tag":"tag1"}],
+    "hashFile": "${FID}"
 }
