@@ -3,9 +3,8 @@ package com.stratio.tests
 import java.util.Scanner
 
 import io.gatling.core.Predef._
-import io.gatling.http.Predef.{ http, jsonPath }
-import io.gatling.http.request._
-import io.gatling.http.request.BodyPart._
+import io.gatling.http.Predef. { RawFileBodyPart, ELFileBodyPart, ELFileBody, http, jsonPath }
+import io.gatling.http.request.BodyPart. { rawFileBodyPart, elFileBodyPart }
 import java.io._
 
 class PrePT extends Simulation with Common{
@@ -38,8 +37,8 @@ class PrePT extends Simulation with Common{
 
  	val uploadShindingXML = exec(http("POST /widget/upload")
         .post("/widget/upload")
-        .bodyPart(rawFileBodyPart(Option ("File"), "chart.xml").contentType("text/xml"))
-        .check(jsonPath("$.fileId")
+        .bodyPart(ELFileBodyPart("File", "chart.xml").fileName("chart.xml").transferEncoding("binary").contentType("text/xml"))
+          .check(jsonPath("$.fileId")
            .saveAs("FID")))
       .exitHereIfFailed
       

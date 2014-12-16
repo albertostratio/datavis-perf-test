@@ -1,9 +1,10 @@
 {
-   "title": "pwPerf${DS.type}",
-   "positionX": 0,
-   "positionY": 0,
+   "title": "pwPerf${DS.type}",   
    "properties": {
         "property":"."
         },
-   "dataViews": [{"dataViewId":${DVID}}]
+   "dataViews": [{"da0taViewId":${DVID}}],
+   "uiproperties": {
+   	    "uiproperty":"."
+   	   }
 }

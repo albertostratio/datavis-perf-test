@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Dummy ${DS.type} Chart" height="500">
+    <Require feature="dynamic-height"/>
+    <Require feature="views"/>
+    <Require feature="pubsub-2">
+      <Param name="topics">
+        <![CDATA[
+        <Topic title="Change data" name=stratio.datavis.change-data.*"
+               description="Subscribes to datavis data" type="object"
+               subscribe="true"/>
+        ]]>
+      </Param>
+    </Require>
+    <Require feature="setprefs"/>
+  </ModulePrefs>
+
+  <UserPref name="minDataViewsAmount" default_value="1" datatype="hidden" />
+  <UserPref name="maxDataViewsAmount" default_value="1" datatype="hidden" />
+  <UserPref name="refresh" display_name="AutoRefresh" default_value="false" datatype="bool" />
+  <UserPref name="interval" display_name="Interval" default_value="30" datatype="number" />
+  <UserPref name="axisX" display_name="Axis X" default_value="default" datatype="list" />
+  <UserPref name="axisY" display_name="Axis Y" default_value="default" datatype="list" />
+  <UserPref name="color" display_name="Color Palette" default_value="category10|category20|category20b|category20c" datatype="list" />
+  <UserPref name="donut" display_name="Donut" default_value="false" datatype="bool" />
+  <UserPref name="donutRatio" display_name="Donut Ratio" default_value="0.35" datatype="number" />
+  <UserPref name="showLabels" display_name="Show Labels" default_value="true" datatype="bool" />
+  <UserPref name="labelType" display_name="Label Type" default_value="key|value|percent" datatype="list" />
+  <UserPref name="labelsOutside" display_name="Labels Outside" default_value="true" datatype="bool" />
+  <UserPref name="valueFormat" display_name="Value Format" default_value=",.2f" datatype="string" />
+  <UserPref name="showLegend" display_name="Show Legend" default_value="true" datatype="bool" />
+  <UserPref name="transition" display_name="Transition" default_value="true" datatype="bool" />
+  <UserPref name="transitionDuration" display_name="Transition Duration (ms)" default_value="500" datatype="number" />
+  <UserPref name="tooltips" display_name="Tooltips" default_value="true" datatype="bool" />
+
+  <Content type="html">
+    <![CDATA[
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <style>
+          #chart, #chart svg {
+          height: 100%;
+          min-height: 340px;
+          min-width: 340px;
+          }
+        </style>
+        <link rel="stylesheet" type="text/css" href="../libs/vendors/nvd3/nv.d3.css" />
+        <script src="../libs/vendors/d3/d3.v3.min.js" charset="utf-8"></script>
+        <script src="../libs/vendors/nvd3/nv.d3.min.js"></script>
+        <script type="text/javascript">
+          var params = gadgets.views.getParams();
+          var prefs = new gadgets.Prefs();
+
+          function init() {
+            renderGraph(params);
+            gadgets.window.adjustHeight();
+          }
+
+          function renderGraph(params){
+            var keys = Object.keys(params.data.data[0]);
+            if(params.data.status === "OK") {
+              nv.addGraph(function () {
+                chart = nv.models.pieChart();
+
+                if(prefs.getString("axisX") == "default"){
+                  chart.x(function (d) { return d[keys[0]] });
+                }else{
+                  chart.x(function (d) { return d[prefs.getArray("axisX")[0]] });
+                }
+                if(prefs.getString("axisY") == "default"){
+                  chart.y(function (d) { return d[keys[1]] });
+                }else{
+                  chart.y(function (d) { return d[prefs.getArray("axisY")[0]] });
+                }
+
+                chart.showLabels(prefs.getBool("showLabels"))
+                     .pieLabelsOutside(prefs.getBool("labelsOutside"))
+                     .donutLabelsOutside(prefs.getBool("labelsOutside"))
+                     .valueFormat(d3.format(prefs.getString("valueFormat")))
+                     .tooltips(prefs.getBool("tooltips"))
+                     .labelType(prefs.getArray("labelType")[0])
+                     .showLegend(prefs.getBool("showLegend"))
+                     .donut(prefs.getBool("donut"))
+                     .donutRatio(prefs.getFloat("donutRatio") || 0.35);
+
+                switch (prefs.getArray("color")[0]) {
+                  case "category10":
+                    chart.color(d3.scale.category10().range());
+                    break;
+                  case "category20":
+                    chart.color(d3.scale.category20().range());
+                    break;
+                  case "category20b":
+                    chart.color(d3.scale.category20b().range());
+                    break;
+                  case "category20c":
+                    chart.color(d3.scale.category20c().range());
+                    break;
+                  default: //String ...
+                    chart.color(d3.scale.category10().range());
+                    break;
+                }
+
+                d3.select("#chart svg")
+                  .datum(params.data.data);
+
+                if(prefs.getBool("transition")){
+                  d3.select("#chart svg")
+                    .transition()
+                    .duration(prefs.getFloat("transitionDuration") || 500)
+                    .call(chart);
+                }else{
+                  d3.select("#chart svg")
+                    .call(chart);
+                }
+
+                nv.utils.windowResize(chart.update);
+                return chart;
+              });
+            }else{
+              //Do something on errors
+            }
+          }
+
+          function setPrefs(userPrefs){
+            for(var key in userPrefs){
+              prefs.set(key, userPrefs[key]);
+            }
+          }
+
+          function callback(topic, params, subscriberData) {
+            setPrefs(params.userPrefs);
+            renderGraph(params);
+          }
+
+          gadgets.HubSettings.onConnect = function(hub, suc, err) {
+            gadgets.Hub.subscribe("stratio.datavis.change-data."+params.widgetId, callback);
+          };
+
+          gadgets.util.registerOnLoadHandler(init);
+        </script>
+      </head>
+      <body>
+        <div id="chart">
+          <svg></svg>
+        </div>
+      </body>
+    </html>
+    ]]>
+  </Content>
+</Module>

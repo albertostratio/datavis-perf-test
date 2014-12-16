@@ -4,12 +4,11 @@
     "description":".",
     "thumbnail":".",
     "properties":{
+    	"icon":"fa-pie-chart",
         "property":".",
         "url":".xml"
         },
-    "screenShots":{
-        "screenshot":"."
-        },
-    "tags":[{"tag":"tag1"}],
-    "hashFile": "${FID}"
+    "screenShots":{},
+    "tags":[],
+    "hashFile":"${FID}"
 }

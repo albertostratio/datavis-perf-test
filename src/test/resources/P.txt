@@ -2,6 +2,6 @@
     "title":"paPerf${DS.type}",
     "url": "/main",
     "content": "content",
-    "layOut": "layOut",
+    "layOut": {},
     "userId": ${UID}
 }
