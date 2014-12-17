@@ -10,23 +10,8 @@
 
     <properties>
         <gatling-maven-plugin.version>2.1.0-SNAPSHOT</gatling-maven-plugin.version>
-        <gatling.version>2.1.0-SNAPSHOT</gatling.version>
+        <gatling.version>2.1.1</gatling.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>artifact-Snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>            
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-        </repository>
-    </repositories>
 
     <pluginRepositories>
         <pluginRepository>
