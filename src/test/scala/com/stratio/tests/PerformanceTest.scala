@@ -18,7 +18,7 @@ trait PerformanceTest extends Simulation with Common{
           .body(StringBody(
           """{"pageWidgetId": ${PWID}
             ,"filters":[]
-            |,"metaData":true
+            |,"metadata":true
             |}""".stripMargin)).asJSON
           .check(jsonPath("$")
           .saveAs("response"))
