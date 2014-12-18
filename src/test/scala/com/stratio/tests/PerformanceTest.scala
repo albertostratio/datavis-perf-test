@@ -16,9 +16,9 @@ trait PerformanceTest extends Simulation with Common{
         .exec(http("POST /data")
           .post("/data")
           .body(StringBody(
-          """{"id": ${PWID}
+          """{"pageWidgetId": ${PWID}
             ,"filters":[]
-            |,"fetchMetaData":true
+            |,"metaData":true
             |}""".stripMargin)).asJSON
           .check(jsonPath("$")
           .saveAs("response"))
