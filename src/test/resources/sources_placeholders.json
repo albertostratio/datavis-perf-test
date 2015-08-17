@@ -1,12 +1,18 @@
 [{
     "DS": {
         "type":"jdbc",
-        "props":{       
-	        "url":"postgres://hakama:hakama@JDBCDS/demo",
-	        "userName":"not being used!!",
-	        "password":"not being used!!",
-	        "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$JDBCDataProviderProperties"
-	        }
+        "props":{
+            "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$JDBCDataProviderProperties",
+            "driver":"postgresql",
+            "connectionType":"remote",
+            "hosts":[{"hostName":"localhost","port":1234}],
+            "dataDirectory":"",
+            "userName":"test",
+            "password":"12345678",
+            "databaseName":"test",
+            "urlCustom":"",
+            "driverCustomClass":""
+          }
          },
     "DV": {
          "query":"SELECT * FROM demo"
