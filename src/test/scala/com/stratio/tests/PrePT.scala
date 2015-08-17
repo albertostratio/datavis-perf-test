@@ -7,7 +7,7 @@ import io.gatling.http.Predef. { RawFileBodyPart, ELFileBodyPart, ELFileBody, ht
 import io.gatling.http.request.BodyPart. { rawFileBodyPart, elFileBodyPart }
 import java.io._
 
-class PrePT extends Simulation with Common{
+class PrePT extends Simulation with Common {
 
   val writer = new PrintWriter(new File("associationId.csv" ))
 
@@ -15,11 +15,19 @@ class PrePT extends Simulation with Common{
 
     lazy val assocEndpoint = "/pages/".concat("""${PID}""").concat("/widgets/").concat("""${WID}""")
 
-    val getUser = exec(http("GET /profile/test")
-        .get("/profile/test")
+
+    val authenticateUser = exec(http("POST /login/authenticate/userpass")
+      .post("/login/authenticate/userpass")
+      .body(ELFileBody("AUTH.txt")).asJSON
+      .check(jsonPath("$.id")
+      .saveAs("UID")))
+      .exitHereIfFailed
+
+/*    val getUser = exec(http("GET /user")
+        .get("/user/1")
         .check(jsonPath("$.id")
           .saveAs("UID")))
-      .exitHereIfFailed
+      .exitHereIfFailed*/
 
     val createDataSource = exec(http("POST /datasources")
         .post("/datasources")
@@ -81,9 +89,9 @@ class PrePT extends Simulation with Common{
   }
 
   //replace REST_DS, JDBC_DS, MONGO_DS, CASSANDRA_DS from sources.json
-  val placeholded = new Scanner(new File("target/test-classes/sources_placeholders.json"));
-  val replaced = new PrintWriter("target/test-classes/sources.json");
-  var sources = placeholded.useDelimiter("\\A").next()
+  val placeholder = new Scanner(new File("target/test-classes/sources_placeholders.json"))
+  val replaced = new PrintWriter("target/test-classes/sources.json")
+  var sources = placeholder.useDelimiter("\\A").next()
 
   sources = sources.replaceAll("JDBCDS", jdbcds)
   sources = sources.replaceAll("MONGODS", mongods)
@@ -93,9 +101,9 @@ class PrePT extends Simulation with Common{
   sources = sources.replaceAll("SPARKCASSANDRADS", sparkcassandrads)
   sources = sources.replaceAll("DEEPDS", deepds)
 
-  replaced.println(sources);
-  placeholded.close();
-  replaced.close();
+  replaced.println(sources)
+  placeholder.close()
+  replaced.close()
 
   val feeder = jsonFile("sources.json")
 
@@ -103,7 +111,7 @@ class PrePT extends Simulation with Common{
     .foreach(feeder.records, "record") {
       exec(flattenMapIntoAttributes("${record}"))
       .exec(
-        RequiredElement.getUser
+        RequiredElement.authenticateUser
         ,RequiredElement.createDataSource
         ,RequiredElement.createDataView
         ,RequiredElement.uploadShindingXML
