@@ -3,7 +3,7 @@ package com.stratio.tests
 import io.gatling.core.Predef._
 import scala.concurrent.duration._
 
-trait DataCommon extends PerformanceTest{
+trait DataCommon extends PerformanceTest {
 
   feederAssoc.records.foreach(fA => {
     if (fA.get("DS").get.equals(dtype)) {

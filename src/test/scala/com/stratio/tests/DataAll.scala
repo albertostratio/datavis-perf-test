@@ -3,7 +3,7 @@ package com.stratio.tests
 import io.gatling.core.Predef._
 import scala.concurrent.duration.DurationInt
 
-class DataAll extends PerformanceTest{
+class DataAll extends PerformanceTest {
 
   feederAssoc.records.foreach(fA => {
     scns += scenario(fA.get("DS").get)

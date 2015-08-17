@@ -6,7 +6,7 @@ import io.gatling.http.Predef.{StringBody, http, responseTimeInMillis, jsonPath}
 import scala.collection.mutable.ListBuffer
 import scala.concurrent.duration._
 
-trait PerformanceTest extends Simulation with Common{
+trait PerformanceTest extends Simulation with Common {
 
   object Data {
 
