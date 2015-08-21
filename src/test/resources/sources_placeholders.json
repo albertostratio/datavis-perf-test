@@ -83,4 +83,17 @@
     "DV": {
         "query":"SELECT * FROM demo.demo"
          }
+},{
+  "DS": {
+    "type":"csv_sqlbased",
+    "properties":{
+      "mappingClass":"com.stratio.datavis.domain.provider.DataProviderProperties$FileDataProviderProperties",
+      "path":"/datasources/tmp/stratio-contributors.csv",
+      "tableName":"stratio-contributors.csv",
+      "separator":","
+    }
+  },
+  "DV": {
+    "query":"SELECT * FROM demo.demo"
+  }
 }]
