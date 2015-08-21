@@ -10,7 +10,7 @@ trait Common {
 
   def logger = LoggerFactory.getLogger(this.getClass)
 
-  val sut = "http://".concat(System.getProperty("SUT", "localhost:9000/api"))
+  val sut = "http://".concat(System.getProperty("SUT", "10.200.0.16:9000/api"))
 
   val jdbcds = System.getProperty("JDBCDS", "127.0.0.1")
   val mongods = System.getProperty("MONGODS", "127.0.0.1")
@@ -19,6 +19,7 @@ trait Common {
   val restds = System.getProperty("RESTDS", "127.0.0.1")
   val sparkcassandrads = System.getProperty("SPARKCASSANDRADS", "127.0.0.1")
   val deepds = System.getProperty("DEEPDS", "127.0.0.1")
+  val file = System.getProperty("FILEDS", "10.200.0.16")
 
 
   val httpConf = http
