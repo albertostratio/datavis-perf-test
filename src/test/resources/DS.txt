@@ -1,7 +1,7 @@
 {
     "type":"${DS.type}",
     "name":"dsPerfdev${DS.type}",
-    "properties":${DS.props.jsonStringify()},
+    "properties":${DS.properties.jsonStringify()},
     "description":".",
     "syntax":"sql"
 }

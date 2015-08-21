@@ -1,14 +1,20 @@
-{
-    "name":"wPerf${DS.type}",
-    "type":"type2",
-    "description":".",
-    "thumbnail":".",
-    "properties":{
-    	"icon":"fa-pie-chart",
-        "property":".",
-        "url":".xml"
-        },
-    "screenShots":{},
-    "tags":[],
-    "hashFile":"${FID}"
+{"name":"wPerf${DS.type}",
+ "type":"theType",
+ "properties":{
+   "author":"Stratio",
+   "authorEmail":"datavis@stratio.com",
+   "authorLink":"http://www.stratio.com",
+   "authorPhoto":"http://localhost:9000/public/widgets/others/d4e62ad2434cf26eb8fb691ae30a5959/logo_stratio.png",
+   "description":"Word cloud widget. Support multiples dataviews",
+   "directoryTitle":"wordCloud",
+   "icon":"",
+   "knowledgeBase":"http://www.stratio.com/datavis/kbase/article/word-cloud-widget/",
+   "title":"Chart",
+   "url":"http://localhost:9000/public/widgets/others/d4e62ad2434cf26eb8fb691ae30a5959/manifest.xml"
+   },
+ "thumbnail":"http://localhost:9000/public/widgets/others/d4e62ad2434cf26eb8fb691ae30a5959/thumbnail.png",
+ "screenShots":"http://localhost:9000/public/widgets/others/d4e62ad2434cf26eb8fb691ae30a5959/screenshot.png",
+ "tags":[],
+ "hash":"${FID}",
+ "version":"0.7.0-SNAPSHOT"
 }
