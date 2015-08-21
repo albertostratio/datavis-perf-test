@@ -9,12 +9,13 @@ trait DataCommon extends PerformanceTest {
     if (fA.get("DS").get.equals(dtype)) {
       scns += scenario(dtype.toUpperCase)
         .exec(flattenMapIntoAttributes(fA))
+        .exec(Auth.auth)
         .exec(Data.getData)
     }
   })
 
   setUp(
-    scns.toList.map(_.inject(rampUsers(users) over (new DurationInt(injectDuration).minutes))))
+    scns.toList.map(_.inject(rampUsers(users) over (new DurationInt(injectDuration).seconds))))
     .maxDuration(new DurationInt(runDuration).minutes)
     .uniformPauses(5)
     .protocols(httpConf)

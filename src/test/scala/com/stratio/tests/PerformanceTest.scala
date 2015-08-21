@@ -3,10 +3,18 @@ package com.stratio.tests
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef.{StringBody, http, responseTimeInMillis, jsonPath}
+import io.gatling.http.request.ELFileBody
 import scala.collection.mutable.ListBuffer
 import scala.concurrent.duration._
 
 trait PerformanceTest extends Simulation with Common {
+
+  object Auth {
+
+    val auth = http("POST /login/authenticate/userpass")
+      .post("/login/authenticate/userpass")
+      .body(ELFileBody("AUTH.txt")).asJSON
+  }
 
   object Data {
 
@@ -17,7 +25,7 @@ trait PerformanceTest extends Simulation with Common {
           .post("/data")
           .body(StringBody(
           """{"pageWidgetId": ${PWID}
-            ,"filters":[]
+            ,"filters":[],"aggregations":[]
             |,"metadata":true
             |}""".stripMargin)).asJSON
           .check(jsonPath("$")
