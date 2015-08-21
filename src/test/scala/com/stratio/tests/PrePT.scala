@@ -13,7 +13,9 @@ class PrePT extends Simulation with Common {
 
   object RequiredElement {
 
-    lazy val assocEndpoint = "/pages/".concat("""${PID}""").concat("/widgets/").concat("""${WID}""")
+    //TODO: pick up the widget id from an endpoint
+    val widgetId = "14"
+    lazy val assocEndpoint = "/pages/".concat("""${PID}""").concat("/widgets/").concat(widgetId)
 
 
     val authenticateUser = exec(http("POST /login/authenticate/userpass")
@@ -22,12 +24,6 @@ class PrePT extends Simulation with Common {
       .check(jsonPath("$.id")
       .saveAs("UID")))
       .exitHereIfFailed
-
-/*    val getUser = exec(http("GET /user")
-        .get("/user/1")
-        .check(jsonPath("$.id")
-          .saveAs("UID")))
-      .exitHereIfFailed*/
 
     val createDataSource = exec(http("POST /datasources")
         .post("/datasources")
@@ -41,20 +37,6 @@ class PrePT extends Simulation with Common {
         .body(ELFileBody("DV.txt")).asJSON
         .check(jsonPath("$.dataView.id")
           .saveAs("DVID")))
-      .exitHereIfFailed
-
- 	val uploadShindingXML = exec(http("POST /widget/upload")
-        .post("/widget/upload")
-        .bodyPart(ELFileBodyPart("File", "chart.xml").fileName("chart.xml").transferEncoding("binary").contentType("text/xml"))
-          .check(jsonPath("$.fileId")
-           .saveAs("FID")))
-      .exitHereIfFailed
-      
-    val createWidget = exec(http("POST /widgets")
-        .post("/widgets")
-        .body(ELFileBody("W.txt")).asJSON
-        .check(jsonPath("$.widget.id")
-          .saveAs("WID")))
       .exitHereIfFailed
 
     val createPage = exec(http("POST /pages")
@@ -114,8 +96,6 @@ class PrePT extends Simulation with Common {
         RequiredElement.authenticateUser
         ,RequiredElement.createDataSource
         ,RequiredElement.createDataView
-        ,RequiredElement.uploadShindingXML
-        ,RequiredElement.createWidget
         ,RequiredElement.createPage
         ,RequiredElement.assocPageWidget
       )}
