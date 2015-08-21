@@ -1,6 +1,6 @@
 package com.stratio.tests
 
-class DataFile extends DataCommon{
+class DataFile extends DataCommon {
 
 }
 
