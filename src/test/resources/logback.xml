@@ -8,10 +8,10 @@
         </encoder>
     </appender>
 
-    <logger name="io.gatling.http.ahc.AsyncHandlerActor" level="TRACE" />
-    <logger name="com.stratio.tests.SamplePT" level="INFO" />
+    <logger name="io.gatling.http.ahc.AsyncHandlerActor" level="ERROR" />
+    <logger name="com.stratio.tests.SamplePT" level="ERROR" />
 
-    <root level="${logLevel:-INFO}">
+    <root level="${logLevel:-ERROR}">
         <appender-ref ref="CONSOLE" />
     </root>
 
